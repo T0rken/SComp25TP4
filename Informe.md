@@ -96,7 +96,7 @@ De esta manera, se consigue tener un sistema ordenado y se facilita la gestion d
 
 Las salidas de nuestras tres máquinas se encuentran en: [lsmod Franco.txt](./lsmod%20Franco.txt), [lsmod Julieta](./lsmod%20Julieta.txt) y .
 
-Pendiente: Patricio, diff.
+//TODO: Patricio, diff.
 
 3. ¿Cuáles no están cargados pero están disponibles? ¿Qué pasa cuando el driver de un dispositivo no está disponible?
 
@@ -108,9 +108,24 @@ Por otro lado, si no existe ningún driver para un hardware, no se lo puede util
 
 El reporte de `hwinfo` se encuentra en [hwinfo.txt](./hwinfo.txt).
 
-5. ¿Qué diferencia existe entre un módulo y un programa? 
+5. ¿Qué diferencia existe entre un módulo y un programa?
+
+Fuera de las diferencias en las funciones que pueden utilizar que se mencionaron [anteriormente](#desafío-2), existen otras diferencias:
+
+- espacio: el módulo de kernel se ejecuta en espacio de kernel, el programa se ejecuta en espacio de usuario.
+- usos: un módulo de kernel se utiliza para manejar hardware, tareas del sistema, etc; mientras que un programa se utiliza para realizar tareas rutinarias que no requieran de acceso privilegiado.
+- extensiones: los módulos de kernel tienen extensión .ko, mientras que los programas tienen otras extensiones.
+
 6. ¿Cómo puede ver una lista de las llamadas al sistema que realiza un simple helloworld en c?
-7. ¿Qué es un segmentation fault? ¿Cómo lo maneja el kernel y como lo hace un programa?
+
+Se puede utilizar el comando `strace` para ver las llamadas al sistema que realiza cualquier programa.
+
+//TODO: ejecutar, ejemplo.
+
+7. ¿Qué es un segmentation fault? ¿Cómo lo maneja el kernel y cómo lo hace un programa?
+
+Segmentation fault es una falla en el acceso a la memoria que sucede cuando un segmento de menor privilegio intenta acceder a un espacio de memoria de mayor nivel de privilegio. Cuando sucede, el kernel le envía una señal al programa, y salvo que esté manejado de otra manera, causará el cese del proceso. Una falla en la forma en la que un programa en C utilzia punteros puede causar una segmentation fault.
+
 8. ¿Se animan a intentar firmar un módulo de kernel ? y documentar el proceso ?  https://askubuntu.com/questions/770205/how-to-sign-kernel-modules-with-sign-file
 9. Agregar evidencia de la compilación, carga y descarga de su propio módulo imprimiendo el nombre del equipo en los registros del kernel. 
 10. ¿Que pasa si mi compañero con secure boot habilitado intenta cargar un módulo firmado por mi? 
