@@ -69,14 +69,32 @@ De esta manera, se consigue tener un sistema ordenado y se facilita la gestion d
 
 1. ¿Qué funciones tiene disponible un programa y un módulo?
 
+    Funciones de un programa:
+    - funciones de librerías externas y estándar,
+    - llamadas al sistema,
+    - funciones definidas por el usuario.
+    Funciones de un módulo:
+    - funciones externas provistas por el kernel solamente,
+    - funciones definidas por el usuario.       
+
 2. Espacio de usuario o espacio del kernel.
+
+    Existen dos niveles de privilegio utilizados por Unix: kernel y usuario. Cada uno tiene su espacio, en el cual está permitido realizar ciertas acciones. Esto permite ordenar las acciones y proteger el acceso a los recursos.
 
 3. Espacio de datos.
 
+    El espacio de datos es la parte de la memoria donde se almacenan los datos, incluyendo todas las variables y segmentos de datos. Cualquier módulo de kernel se linkea a todo el kernel, por lo cual es importante mantener un espacio de datos ordenado. Se recomienda utilizar prefijos y convenciones de código bien definidas, y variables estáticas.
+
 4. Drivers. Investigar contenido de /dev.
+
+    En Unix, cada pieza de hardware está representada por un archivo en /dev, que le permite comunicarse con el hardware. Ese archivo es una interfaz que se comunica con lo conocido como un driver, que es un módulo de kernel también y maneja la comunicación real.
 
 ### Resolución de pasos
 
 
 ## Conclusión
+
+## Bibliografía
+
+https://sysprog21.github.io/lkmpg/#how-modules-begin-and-end
 
