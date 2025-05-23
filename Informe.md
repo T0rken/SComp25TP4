@@ -128,15 +128,25 @@ Segmentation fault es una falla en el acceso a la memoria que sucede cuando un s
 
 8. ¿Se animan a intentar firmar un módulo de kernel ? y documentar el proceso ?  https://askubuntu.com/questions/770205/how-to-sign-kernel-modules-with-sign-file
 9. Agregar evidencia de la compilación, carga y descarga de su propio módulo imprimiendo el nombre del equipo en los registros del kernel. 
-10. ¿Que pasa si mi compañero con secure boot habilitado intenta cargar un módulo firmado por mi? 
+10. ¿Qué pasa si mi compañero con secure boot habilitado intenta cargar un módulo firmado por mí?
+
+Debería haber una falla en esa situación, ya que Secure Boot solo permite la ejecución de módulos firmados por firmas permitidas en una lista de firmas confiables. Esta lista normalmente solo contiene claves provistas por la distribución de Linux utilizada, pero sí se podría agregar manualmente la firma del compañero para cargar su módulo sin problemas.
+
 11. Dada la siguiente nota https://arstechnica.com/security/2024/08/a-patch-microsoft-spent-2-years-preparing-is-making-a-mess-for-some-linux-users/ 
     - ¿Cuál fue la consecuencia principal del parche de Microsoft sobre GRUB en sistemas con arranque dual (Linux y Windows)?
+
+    La consecuencia principal fue que muchos usuarios se quedaron sin acceso a su sistema operativo Linux, ya que sus distribuciones que estaban utilizando podían tener firmas de GRUB anteriores que eran consideradas no permitidas y bloqueadas.
+
     - ¿Qué implicancia tiene desactivar Secure Boot como solución al problema descrito en el artículo?
+
+    Secure Boot está diseñado para ser una capa de seguridad, por lo que quitarlo deja más vulnerable al sistema.
+
     - ¿Cuál es el propósito principal del Secure Boot en el proceso de arranque de un sistema?
+
+    El propósito de Secure Boot es que durante el proceso de arranque de un sistema, solo se pueda ejecutar código legítimo y firmado para evitar que código malicioso se ejecute antes del arranque del sistema operativo y los programas (como antivirus) que se ejecuten en el espacio de usuario.
 
 ## Conclusión
 
 ## Bibliografía
-
-https://sysprog21.github.io/lkmpg/#how-modules-begin-and-end
+Salzman, P. J.; Burian, M., Pomerantz, O.; Mottram, B.; Huang, J. <i> The Linux Kernel Module Programming Guide </i>. Disponible en https://sysprog21.github.io/lkmpg/.
 
