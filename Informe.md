@@ -151,6 +151,16 @@ Al ejecutar el programa [Hello](/hello_world/hello_simple.c) y utilizar `strace`
 Segmentation fault es una falla en el acceso a la memoria que sucede cuando un segmento de menor privilegio intenta acceder a un espacio de memoria de mayor nivel de privilegio. Cuando sucede, el kernel le envía una señal al programa, y salvo que esté manejado de otra manera, causará el cese del proceso. Una falla en la forma en la que un programa en C utilzia punteros puede causar una segmentation fault.
 
 8. ¿Se animan a intentar firmar un módulo de kernel ? y documentar el proceso ?  <https://askubuntu.com/questions/770205/how-to-sign-kernel-modules-with-sign-file>
+
+Pasos a seguir: 
+- crear la carpeta modsign
+- crear clave privada y certificado público con `openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -out MOK.pem -nodes -days 36500 -subj "/CN=Mi Firma/"` 
+- firmar el módulo `sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256   MOK.priv MOK.pem /home/juli/Documents/SComp25TP4/hello_world/hello.ko`
+- convertir el certificado a `DER openssl x509 -in MOK.pem -outform DER -out MOK.der`
+- registrar la clave `sudo mokutil --import MOK.der`, tras lo cual pide una contraseña
+- reiniciar la computadora
+- elegir `Enroll MOK` e ingresar la clave elegida.
+
 9. Agregar evidencia de la compilación, carga y descarga de su propio módulo imprimiendo el nombre del equipo en los registros del kernel.
 10. ¿Qué pasa si mi compañero con secure boot habilitado intenta cargar un módulo firmado por mí?
 
