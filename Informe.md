@@ -162,6 +162,15 @@ Pasos a seguir:
 - elegir `Enroll MOK` e ingresar la clave elegida.
 
 9. Agregar evidencia de la compilación, carga y descarga de su propio módulo imprimiendo el nombre del equipo en los registros del kernel.
+
+Al cargar y descargar el módulo propio, se obtiene la siguiente impresión: 
+
+![Hello, puntos flotantes](./img/hello.png)
+
+Esto es el resultado de cargar y descargar el módulo [Hello world](/hello_world/hello.c), como se puede ver en el historial siguiente:
+
+![Historial](./img/history.png).
+
 10. ¿Qué pasa si mi compañero con secure boot habilitado intenta cargar un módulo firmado por mí?
 
 Debería haber una falla en esa situación, ya que Secure Boot solo permite la ejecución de módulos firmados por firmas permitidas en una lista de firmas confiables. Esta lista normalmente solo contiene claves provistas por la distribución de Linux utilizada, pero sí se podría agregar manualmente la firma del compañero para cargar su módulo sin problemas.
