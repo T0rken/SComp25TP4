@@ -190,6 +190,10 @@ Debería haber una falla en esa situación, ya que Secure Boot solo permite la e
 
 ## Conclusión
 
+A través de este trabajo, pudimos practicar la firma de módulos de kernel, así como su carga y descarga, y a utilizar comandos útiles en Linux. Esto es valioso porque muchas veces, la primera solución ante un problema de firmas en Linux es desactivar el secure boot, pero esto no es ideal porque puede dejar el sistema vulnerable a ataques.
+
+En cuanto a los conceptos teóricos, los conceptos de módulos de kernel, secure boot y segmentation fault nos ayudan a comprender el funcionamiento del sistema operativo que utilizamos a diario, y errores que nos hemos encontrado anteriormente al ejecutar programas con problemas.
+
 ## Bibliografía
 
 Salzman, P. J.; Burian, M., Pomerantz, O.; Mottram, B.; Huang, J. <i> The Linux Kernel Module Programming Guide </i>. Disponible en <https://sysprog21.github.io/lkmpg/>.
