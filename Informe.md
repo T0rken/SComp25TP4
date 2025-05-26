@@ -111,7 +111,7 @@ El modulo hello es muy sencillo, solo utiliza printk para escribir en los logs d
 
 2. ¿Qué divers/módulos están cargados en sus propias pc? comparar las salidas con las computadoras de cada integrante del grupo. Expliquen las diferencias. Carguen un txt con la salida de cada integrante en el repo y pongan un diff en el informe.
 
-Las salidas de nuestras tres máquinas se encuentran en: [lsmod Franco.txt](./lsmod%20Franco.txt), [lsmod Julieta](./lsmod%20Julieta.txt) y [lsmod Patricio.txt](./lsmod%20Patricio.txt).
+Las salidas de nuestras tres máquinas se encuentran en: [lsmod_Franco.txt](./lsmod_Franco.txt), [lsmod_Julieta](./lsmod_Julieta.txt) y [lsmod_Patricio.txt](./lsmod_Patricio.txt). El diff se encuentra en [lsmod_diff.txt](lsmod_diff.txt).
 
 3. ¿Cuáles no están cargados pero están disponibles? ¿Qué pasa cuando el driver de un dispositivo no está disponible?
 
@@ -131,9 +131,7 @@ Fuera de las diferencias en las funciones que pueden utilizar que se mencionaron
 - usos: un módulo de kernel se utiliza para manejar hardware, tareas del sistema, etc; mientras que un programa se utiliza para realizar tareas rutinarias que no requieran de acceso privilegiado.
 - extensiones: los módulos de kernel tienen extensión .ko, mientras que los programas tienen otras extensiones.
 
-6. ¿Cómo puede ver una lista de las llamadas al sistema que realiza un simple helloworld en c?
-
-Se puede utilizar el comando `strace` para ver las llamadas al sistema que realiza cualquier programa.
+6. ¿Cómo puede ver una lista de las llamadas al sistema que realiza un simple helloworld en c? Se puede utilizar el comando `strace` para ver las llamadas al sistema que realiza cualquier programa.
 
 //TODO: ejecutar, ejemplo.
 
